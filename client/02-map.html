@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-for-each</title>
+</head>
+<body>
+    <div id="app_product"></div>
+    <script>
+        // Renderizar productos.
+        const products = [
+            { title: 'Burger', price: 121 },
+            { title: 'Pizza', price: 20 },
+        ];
+        const app_product = document.getElementById('app_product');
+        const list = products.map(product => {
+            return `<li>${product.title} - ${product.price}</li>`;
+        })
+
+        app_product.innerHTML= list.join('')
+
+    </script>
+</body>
+</html>
