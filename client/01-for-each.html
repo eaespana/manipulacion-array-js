@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-for-each</title>
+</head>
+<body>
+    <div id="app_product"></div>
+    <div id="app_task"></div>
+    <script>
+        // Renderizar productos.
+        const products = [
+            { title: 'Burger', price: 121 },
+            { title: 'Pizza', price: 20 },
+        ];
+        const app_product = document.getElementById('app_product');
+        products.forEach(product => {
+            app_product.innerHTML += `<li>${product.title} - ${product.price}</li>`;
+        })
+        //Renderizar Tareas.
+        const task = document.getElementById('app_task');
+
+        const app_task = [
+            { title_task: 'make food', done: false },
+            { title_task: 'Organize activities', done: true },
+            { title_task: 'Buy lunch', done: true },
+            { title_task: 'Study english', done: false }
+        ];
+
+        app_task.forEach(({ title_task, done }) => {
+            const element = `
+                <li>
+                    <input 
+                            type='checkbox' 
+                            id='${title_task}' 
+                            name='${title_task}' 
+                            ${done && 'checked'} />
+                        <label for='${title_task}' >${title_task} </label>   
+                </li>`;
+            task.insertAdjacentHTML('beforeend', element);
+        });
+
+    </script>
+</body>
+</html>
